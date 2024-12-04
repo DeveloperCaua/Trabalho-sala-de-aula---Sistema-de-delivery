@@ -1,18 +1,8 @@
-[
-    {
-        "nome_usuario": "Gerente",
-        "data": "04/12/2024",
-        "codigo_pedido": "456",
-        "hora": "09:06:04",
-        "nome_operacao": "Calculo do valor total do pedido (Generico)",
-        "nome_cliente": "Cauã"
-    },
-    {
-        "nome_usuario": "Fulano de tal",
-        "data": "04/12/2024",
-        "codigo_pedido": "456",
-        "hora": "09:06:04",
-        "nome_operacao": "Calculo do valor total do pedido (Generico)",
-        "nome_cliente": "Cauã"
-    }
-]
+[{
+    "nome_usuario": "Fulano de tal",
+    "data": "04/12/2024",
+    "codigo_pedido": 3,
+    "hora": "14:44:01",
+    "nome_operacao": "Calculo do valor total do pedido - método utilizado: calcularValorTotalERegistrarLog()",
+    "nome_cliente": "Cauã"
+}]

@@ -36,13 +36,13 @@ public class SelecionadorTipoLogService {
         this.tipoLog = tipoLog;
     }
     
-    public void selecionarTipoLog(Pedido pedido){
+    public void selecionarTipoLog(Pedido pedido, int codigoPedido){
         ILog logEncontrado = tiposDeLog.get(tipoLog);
         
         if (logEncontrado == null) {
             throw new IllegalArgumentException("Tipo de log não suportado: " + tipoLog);
         }
         
-        logEncontrado.escreverMensagem(pedido);
+        logEncontrado.escreverMensagem(pedido, codigoPedido);
     }
 }
