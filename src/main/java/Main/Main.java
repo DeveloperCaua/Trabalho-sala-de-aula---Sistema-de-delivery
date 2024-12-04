@@ -11,6 +11,7 @@ import TipoCupom.CupomDescontoTaxaEntrega;
 import ObjetosDominioProblema.Item;
 import ObjetosDominioProblema.Pedido;
 import Services.CalculadoraDescontoValorPedidoService;
+import Services.SelecionadorTipoLogService;
 import TipoCupom.CupomDescontoValorPedido;
 
 /**
@@ -54,5 +55,21 @@ public class Main {
         System.out.println("Desconto TOTAL concedido no VALOR DO PEDIDO: R$ " + pedido1.getDescontoPercentualConcedidoValorPedido());
 
         System.out.println("\nValor final do pedido com descontos: R$ " + pedido1.getValorPedido());
-    }
+        
+        
+        
+        SelecionadorTipoLogService logService = new SelecionadorTipoLogService("XML");
+        logService.setTipoLog("JSON");
+                
+        logService.selecionarTipoLog(pedido1);
+        logService.selecionarTipoLog(pedido1);
+        
+        logService.setTipoLog("XML");
+        logService.selecionarTipoLog(pedido1);
+        logService.selecionarTipoLog(pedido1);
+        
+        logService.setTipoLog("DB");
+        logService.selecionarTipoLog(pedido1);
+        logService.selecionarTipoLog(pedido1);
+    }      
 }
