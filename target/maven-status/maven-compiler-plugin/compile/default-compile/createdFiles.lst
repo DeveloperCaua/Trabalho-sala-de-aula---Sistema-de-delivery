@@ -15,9 +15,10 @@ MetodosDescontoValorPedido\MetodoDescontoValorPedidoTipoItem.class
 ObjetosDominioProblema\Pedido.class
 Interfaces\ILog.class
 MetodosDescontoTaxa\MetodoDescontoTaxaTipoItem.class
+Services\GerenciadorDePedidoService.class
 MetodosDescontoValorPedido\MetodoDescontoValorPedidoCodigoCupom.class
-Services\SelecionadorTipoLogService.class
 MetodosDescontoTaxa\MetodoDescontoTaxaPorBairro.class
 Main\Main.class
 TiposLog\DBLog.class
+Services\GerenciadorTipoLogService.class
 TiposLog\XMLLog.class

@@ -4,8 +4,8 @@ C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\MetodosDesconto
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\Interfaces\ILog.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\MetodosDescontoValorPedido\MetodoDescontoValorPedidoTipoItem.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\TipoCupom\CupomDescontoTaxaEntrega.java
-C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\Services\SelecionadorTipoLogService.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\Services\CalculadoraDescontoTaxaService.java
+C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\Services\GerenciadorTipoLogService.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\MetodosDescontoTaxa\MetodoDescontoTaxaPorBairro.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\Interfaces\IMetodoDescontoTaxaEntrega.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\MetodosDescontoValorPedido\MetodoDescontoValorPedidoCodigoCupom.java
@@ -17,6 +17,7 @@ C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\Interfaces\IMet
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\MetodosDescontoTaxa\MetodoDescontoTaxaTipoItem.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\MetodosDescontoTaxa\MetodoDescontoTaxaPorTipoCliente.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\ObjetosDominioProblema\Item.java
+C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\Services\GerenciadorDePedidoService.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\MetodosDescontoTaxa\MetodoDescontoTaxaValorPedido.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\Services\CalculadoraDescontoValorPedidoService.java
 C:\Users\Cauã\Documents\NetBeansProjects\Delivery\src\main\java\ObjetosDominioProblema\Pedido.java

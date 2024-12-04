@@ -11,5 +11,5 @@ import ObjetosDominioProblema.Pedido;
  * @author Cauã
  */
 public interface ILog {
-    void escreverMensagem(Pedido pedido);
+    void escreverMensagem(Pedido pedido, int codigoPedido);
 }

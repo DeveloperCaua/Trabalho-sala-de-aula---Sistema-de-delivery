@@ -48,7 +48,7 @@ public class Pedido {
             total = total + item.getValorTotal();
         } 
         
-        return (total - (total * getDescontoPercentualConcedidoValorPedido())) + (getTaxaEntrega() - (getTaxaEntrega() * getDescontoPercentualConcedidoTaxaEntrega()));
+        return total;
      }
      
      public Cliente getCliente(){

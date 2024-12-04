@@ -11,19 +11,19 @@ import java.util.Date;
 public class DBLog implements ILog {
 
     private static final String DB_PATH = "arquivosDeLogDB";
-    private static final String DB_FILE = DB_PATH + "/log.db";  // Caminho completo do arquivo de banco de dados
-    private static final String DB_URL = "jdbc:sqlite:" + DB_FILE;  // URL de conexão SQLite
-    private static final String TABELA_LOGS = "logs";  // Nome da tabela
+    private static final String DB_FILE = DB_PATH + "/log.db";
+    private static final String DB_URL = "jdbc:sqlite:" + DB_FILE;
+    private static final String TABELA_LOGS = "logs";
 
     public DBLog() {
-        criarDiretorioSeNecessario();  // Cria o diretório, se necessário
-        criarTabela();  // Cria a tabela no banco de dados
+        criarDiretorioSeNecessario();
+        criarTabela();
     }
 
     @Override
-    public void escreverMensagem(Pedido pedido) {
+    public void escreverMensagem(Pedido pedido, int codigoPedido) {
         if (pedido == null) {
-            throw new IllegalArgumentException("Pedido informado é inválido.");
+            throw new IllegalArgumentException("\nPedido informado é inválido.");
         }
 
         try (Connection conn = DriverManager.getConnection(DB_URL)) {
@@ -33,28 +33,27 @@ public class DBLog implements ILog {
                         + "VALUES (?, ?, ?, ?, ?, ?)";
 
                 try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                    // Preenchendo os valores dos parâmetros
                     String nomeUsuario = UsuarioLogadoService.getNomeUsuario();
                     Date dataAtual = new Date();
                     String data = new SimpleDateFormat("dd/MM/yyyy").format(dataAtual);
                     String hora = new SimpleDateFormat("HH:mm:ss").format(dataAtual);
-                    String codigoPedido = "123";
-                    String nomeOperacao = "Calculo do valor total do pedido (Generico)";
-                    String nomeCliente = pedido.getCliente().getNome(); // Supondo que Cliente possui o método getNome()
+                    String codigo = String.valueOf(codigoPedido);
+                    String nomeOperacao = "Calculo do valor total do pedido - método utilizado: calcularValorTotalERegistrarLog()";
+                    String nomeCliente = pedido.getCliente().getNome();
 
-                    pstmt.setString(1, nomeUsuario); // Nome do usuário
-                    pstmt.setString(2, data); // Data
-                    pstmt.setString(3, hora); // Hora
-                    pstmt.setString(4, codigoPedido); // Código do pedido
-                    pstmt.setString(5, nomeOperacao); // Nome da operação
-                    pstmt.setString(6, nomeCliente); // Nome do cliente
+                    pstmt.setString(1, nomeUsuario);
+                    pstmt.setString(2, data);
+                    pstmt.setString(3, hora);
+                    pstmt.setString(4, codigo);
+                    pstmt.setString(5, nomeOperacao);
+                    pstmt.setString(6, nomeCliente);
 
                     pstmt.executeUpdate();
-                    System.out.println("Mensagem salva no banco de dados.");
+                    System.out.println("\nMensagem salva no banco de dados.");
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Erro ao salvar mensagem no banco de dados: " + e.getMessage());
+            System.err.println("\nErro ao salvar mensagem no banco de dados: " + e.getMessage());
         }
     }
 
@@ -62,9 +61,9 @@ public class DBLog implements ILog {
         File diretorio = new File(DB_PATH);
         if (!diretorio.exists()) {
             if (diretorio.mkdirs()) {
-                System.out.println("Diretório criado: " + DB_PATH);
+                System.out.println("\nDiretório criado: " + DB_PATH);
             } else {
-                System.err.println("Falha ao criar o diretório: " + DB_PATH);
+                System.err.println("\nFalha ao criar o diretório: " + DB_PATH);
             }
         }
     }
@@ -83,11 +82,10 @@ public class DBLog implements ILog {
                         + ");";
                 try (Statement stmt = conn.createStatement()) {
                     stmt.execute(createTableSQL);
-                    System.out.println("Tabela de logs criada (se não existia).");
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Erro ao criar a tabela no banco de dados: " + e.getMessage());
+            System.err.println("\nErro ao criar a tabela no banco de dados: " + e.getMessage());
         }
     }
 }
