@@ -1,26 +1,29 @@
 package Services;
 
 import Interfaces.ILog;
-import TiposLog.DBLog;
-import TiposLog.JSONLog;
-import TiposLog.XMLLog;
-import java.util.HashMap;
-import java.util.Map;
 
 public class GerenciadorTipoLogService {
-    private final Map<String, ILog> tiposDeLog;
+    private ILog tipoLog;
+    private static GerenciadorTipoLogService instancia = null;
 
-    public GerenciadorTipoLogService() {
-        tiposDeLog = new HashMap<>();
-        tiposDeLog.put("DB", new DBLog());
-        tiposDeLog.put("JSON", new JSONLog());
-        tiposDeLog.put("XML", new XMLLog());
+    private GerenciadorTipoLogService() {
     }
 
-    public ILog selecionarTipoLog(String tipoLog) {
-        if (tipoLog == null || !tiposDeLog.containsKey(tipoLog)) {
-            throw new IllegalArgumentException("Tipo de log não suportado: " + tipoLog);
+    public static GerenciadorTipoLogService getInstance(){
+        if(instancia == null) 
+            instancia = new GerenciadorTipoLogService();
+
+        return instancia;
+    }
+    
+    public void setTipoLog(ILog tipoLog) {
+        if(tipoLog == null) {
+            throw new IllegalArgumentException("Argumento invalido!");
         }
-        return tiposDeLog.get(tipoLog);
+        this.tipoLog = tipoLog;
+    }
+    
+    public ILog getILog(){
+        return tipoLog;
     }
 }

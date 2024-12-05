@@ -1,8 +1,8 @@
 package MetodosDescontoTaxa;
 
-import Interfaces.IMetodoDescontoTaxaEntrega;
 import TipoCupom.CupomDescontoTaxaEntrega;
 import ObjetosDominioProblema.Pedido;
+import Interfaces.IMetodoDescontoTaxaEntregaHandler;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,11 +13,11 @@ import ObjetosDominioProblema.Pedido;
  *
  * @author Cauã
  */
-public class MetodoDescontoTaxaValorPedido implements IMetodoDescontoTaxaEntrega{
+public class MetodoDescontoTaxaValorPedidoHandler implements IMetodoDescontoTaxaEntregaHandler{
     private final double limiteValorPedido;
     private static final double VALOR_DE_DESCONTO = 0.15;
     
-    public MetodoDescontoTaxaValorPedido(double limiteValorPedido){
+    public MetodoDescontoTaxaValorPedidoHandler(double limiteValorPedido){
         this.limiteValorPedido = limiteValorPedido;
     }
     

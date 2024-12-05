@@ -1,12 +1,12 @@
 package MetodosDescontoTaxa;
 
 
-import Interfaces.IMetodoDescontoTaxaEntrega;
 import ObjetosDominioProblema.Cliente;
 import java.util.HashMap;
 import java.util.Map;
 import TipoCupom.CupomDescontoTaxaEntrega;
 import ObjetosDominioProblema.Pedido;
+import Interfaces.IMetodoDescontoTaxaEntregaHandler;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -17,10 +17,10 @@ import ObjetosDominioProblema.Pedido;
  *
  * @author Cauã
  */
-public class MetodoDescontoTaxaPorTipoCliente implements IMetodoDescontoTaxaEntrega{
+public class MetodoDescontoTaxaPorTipoClienteHandler implements IMetodoDescontoTaxaEntregaHandler{
     private final Map<String, Double> descontosPorTipoCliente;
     
-    public MetodoDescontoTaxaPorTipoCliente(){
+    public MetodoDescontoTaxaPorTipoClienteHandler(){
         descontosPorTipoCliente = new HashMap<String, Double>();
         descontosPorTipoCliente.put("Ouro", 0.30);
         descontosPorTipoCliente.put("Prata", 0.20);

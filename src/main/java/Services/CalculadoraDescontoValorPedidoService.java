@@ -4,43 +4,43 @@
  */
 package Services;
 
-import Interfaces.IMetodoDescontoValorPedido;
-import MetodosDescontoValorPedido.MetodoDescontoValorPedidoCodigoCupom;
-import MetodosDescontoValorPedido.MetodoDescontoValorPedidoPorTipoCliente;
-import MetodosDescontoValorPedido.MetodoDescontoValorPedidoTipoItem;
+import MetodosDescontoValorPedido.MetodoDescontoValorPedidoCodigoCupomHandler;
+import MetodosDescontoValorPedido.MetodoDescontoValorPedidoPorTipoClienteHandler;
+import MetodosDescontoValorPedido.MetodoDescontoValorPedidoTipoItemHandler;
 import ObjetosDominioProblema.Pedido;
 import TipoCupom.CupomDescontoValorPedido;
 import java.util.ArrayList;
 import java.util.List;
+import Interfaces.IMetodoDescontoValorPedidoHandler;
 
 /**
  *
  * @author Cauã
  */
 public class CalculadoraDescontoValorPedidoService {
-    private final List<IMetodoDescontoValorPedido> metodosDeDescontoValorPedido;
+    private final List<IMetodoDescontoValorPedidoHandler> metodosDeDescontoValorPedido;
 
     public CalculadoraDescontoValorPedidoService(){
-        metodosDeDescontoValorPedido = new ArrayList<IMetodoDescontoValorPedido>();
-        metodosDeDescontoValorPedido.add(new MetodoDescontoValorPedidoCodigoCupom());
-        metodosDeDescontoValorPedido.add(new MetodoDescontoValorPedidoPorTipoCliente());
-        metodosDeDescontoValorPedido.add(new MetodoDescontoValorPedidoTipoItem());
+        metodosDeDescontoValorPedido = new ArrayList<IMetodoDescontoValorPedidoHandler>();
+        metodosDeDescontoValorPedido.add(new MetodoDescontoValorPedidoCodigoCupomHandler());
+        metodosDeDescontoValorPedido.add(new MetodoDescontoValorPedidoPorTipoClienteHandler());
+        metodosDeDescontoValorPedido.add(new MetodoDescontoValorPedidoTipoItemHandler());
     }
     
         
     public void calcularDesconto(Pedido pedido) {
         if(pedido == null) throw new IllegalArgumentException("O pedido é inválido.");
         
-        for (IMetodoDescontoValorPedido metodoDescontoValorPedido : metodosDeDescontoValorPedido) {
-            if (!(metodoDescontoValorPedido instanceof MetodoDescontoValorPedidoTipoItem)) {
+        for (IMetodoDescontoValorPedidoHandler metodoDescontoValorPedido : metodosDeDescontoValorPedido) {
+            if (!(metodoDescontoValorPedido instanceof MetodoDescontoValorPedidoTipoItemHandler)) {
                 metodoDescontoValorPedido.calcularDescontoValorPedido(pedido);
                 
                 boolean temCodidoOuTipoCliente = temCodidoOuTipoCliente(pedido);
-                if (!temCodidoOuTipoCliente && metodoDescontoValorPedido instanceof MetodoDescontoValorPedidoTipoItem) {
+                if (!temCodidoOuTipoCliente && metodoDescontoValorPedido instanceof MetodoDescontoValorPedidoTipoItemHandler) {
                         metodoDescontoValorPedido.calcularDescontoValorPedido(pedido);
                 }
                 
-            } else if((metodoDescontoValorPedido instanceof MetodoDescontoValorPedidoTipoItem) && pedido.getCuponsDescontoValorPedido().isEmpty()){
+            } else if((metodoDescontoValorPedido instanceof MetodoDescontoValorPedidoTipoItemHandler) && pedido.getCuponsDescontoValorPedido().isEmpty()){
                 metodoDescontoValorPedido.calcularDescontoValorPedido(pedido);
             }
 

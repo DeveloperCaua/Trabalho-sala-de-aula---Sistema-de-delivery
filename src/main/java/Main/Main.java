@@ -9,6 +9,9 @@ import Services.GerenciadorDePedidoService;
 import Services.GerenciadorTipoLogService;
 import TipoCupom.CupomDescontoTaxaEntrega;
 import TipoCupom.CupomDescontoValorPedido;
+import TiposLog.DBLog;
+import TiposLog.JSONLog;
+import TiposLog.XMLLog;
 
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
@@ -60,20 +63,22 @@ public class Main {
         System.out.println("Desconto TOTAL no VALOR DO PEDIDO: " 
             + df.format(pedido1.getDescontoPercentualConcedidoValorPedido() * 100) + "%");
 
-        // Calculando valor total do pedido e registrando logs
-        GerenciadorTipoLogService gerenciadorLog = new GerenciadorTipoLogService();
-
-        double valorFinal;
         
+        //está correto?
+        GerenciadorTipoLogService.getInstance().setTipoLog(new XMLLog());
+        
+        //t1
         GerenciadorDePedidoService gerenciadorPedido1 = new GerenciadorDePedidoService();
-        valorFinal = gerenciadorPedido1.calcularValorTotalERegistrarLog(pedido1, gerenciadorLog, "DB");
+        double valorFinal = gerenciadorPedido1.calcularValorTotal(pedido1);
         
-        GerenciadorDePedidoService gerenciadorPedido2 = new GerenciadorDePedidoService();
-        valorFinal = gerenciadorPedido2.calcularValorTotalERegistrarLog(pedido1, gerenciadorLog, "XML");
+        //t2
+        GerenciadorTipoLogService.getInstance().setTipoLog(new JSONLog());
+        valorFinal = gerenciadorPedido1.calcularValorTotal(pedido1);
         
-        GerenciadorDePedidoService gerenciadorPedido3 = new GerenciadorDePedidoService();
-        valorFinal = gerenciadorPedido3.calcularValorTotalERegistrarLog(pedido1, gerenciadorLog, "JSON");
-
+        //t3
+        GerenciadorTipoLogService.getInstance().setTipoLog(new DBLog());
+        valorFinal = gerenciadorPedido1.calcularValorTotal(pedido1);
+        
         System.out.println("\nValor final do Pedido com descontos: R$ " + df.format(valorFinal));
     }
 }

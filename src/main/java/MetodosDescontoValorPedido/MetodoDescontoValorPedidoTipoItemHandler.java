@@ -4,21 +4,21 @@
  */
 package MetodosDescontoValorPedido;
 
-import Interfaces.IMetodoDescontoValorPedido;
 import ObjetosDominioProblema.Item;
 import ObjetosDominioProblema.Pedido;
 import TipoCupom.CupomDescontoValorPedido;
 import java.util.HashMap;
 import java.util.Map;
+import Interfaces.IMetodoDescontoValorPedidoHandler;
 
 /**
  *
  * @author Cauã
  */
-public class MetodoDescontoValorPedidoTipoItem  implements IMetodoDescontoValorPedido{
+public class MetodoDescontoValorPedidoTipoItemHandler  implements IMetodoDescontoValorPedidoHandler{
     private final Map<String, Double> descontosPorTipoItem;
     
-    public MetodoDescontoValorPedidoTipoItem(){
+    public MetodoDescontoValorPedidoTipoItemHandler(){
         descontosPorTipoItem = new HashMap<String, Double>();
         descontosPorTipoItem.put("Alimentação", 0.05);
         descontosPorTipoItem.put("Educação", 0.20);
