@@ -26,11 +26,7 @@ public class XMLLog implements ILog {
             }
 
             int posicaoParaInserir = linhas.size() - 1;
-<<<<<<< HEAD
-            linhas.add(posicaoParaInserir, "    <logEntry>");
-=======
             linhas.add(posicaoParaInserir, "  <logEntry>");
->>>>>>> 10a47fb313af4e8a2df5e9e4b7129d78ef4d691f
             linhas.add(posicaoParaInserir + 1, "    <mensagem>" + mensagem + "</mensagem>");
             linhas.add(posicaoParaInserir + 2, "  </logEntry>");
 

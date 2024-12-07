@@ -1,10 +1,5 @@
 <logs>
-<<<<<<< HEAD
-    <logEntry>
-    <mensagem>Nome do usuário logado: Balcão PDV 1 | Data: 06/12/2024 | Hora: 23:38:22  | Código do pedido: 1 | Nome da operação: Calculo do valor total do pedido - calcularValorTotal(Pedido pedido) | Nome do cliente: Cauã</mensagem>
-=======
   <logEntry>
-    <mensagem>Nome do usuário: Gerente | Data: 05/12/2024 | Horário: 15:18:20 | Código do pedido: 1 | Nome da operação: Calculo do valor total do pedido calcularValorTotal(Pedido pedido) | Nome do cliente: Cauã</mensagem>
->>>>>>> 10a47fb313af4e8a2df5e9e4b7129d78ef4d691f
+    <mensagem>Nome do usuário logado: Balcão PDV 1 | Data: 06/12/2024 | Hora: 23:47:46  | Código do pedido: 1 | Nome da operação: Calculo do valor total do pedido - calcularValorTotal(Pedido pedido) | Nome do cliente: Cauã</mensagem>
   </logEntry>
 </logs>
