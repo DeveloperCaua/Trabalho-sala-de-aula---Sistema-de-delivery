@@ -1,6 +1,8 @@
 package Services;
 
 import Interfaces.ILog;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class GerenciadorTipoLogService {
     private ILog tipoLog;
@@ -23,7 +25,18 @@ public class GerenciadorTipoLogService {
         this.tipoLog = tipoLog;
     }
     
-    public ILog getILog(){
-        return tipoLog;
+    public void criarMensagemLog(String parteIncomum){
+        String parteComum = montandoParteComumString(parteIncomum);
+        tipoLog.escreverMensagem(parteComum);
+    }
+
+    private String montandoParteComumString(String parteIncomum){
+        DateTimeFormatter DateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter HourFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+    
+        String data = LocalDateTime.now().format(DateFormatter);
+        String hora = LocalDateTime.now().format(HourFormatter);
+        
+        return "Nome do usuário logado: " + UsuarioLogadoService.getNomeUsuario() + " | Data: " + data + " | Hora: " + hora + " " + parteIncomum;
     }
 }

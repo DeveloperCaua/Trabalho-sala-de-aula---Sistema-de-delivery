@@ -1,3 +1,5 @@
-<logEntry>
-  <mensagem>Nome do usuário: Balcão PDV 1 | Data: 05/12/2024 | Horário: 13:06:48 | Código do pedido: 1 | Nome da operação: Calculo do valor total do pedido calcularValorTotal(Pedido pedido) | Nome do cliente: Cauã</mensagem>
-</logEntry>
+<logs>
+    <logEntry>
+    <mensagem>Nome do usuário logado: Balcão PDV 1 | Data: 06/12/2024 | Hora: 23:38:22  | Código do pedido: 1 | Nome da operação: Calculo do valor total do pedido - calcularValorTotal(Pedido pedido) | Nome do cliente: Cauã</mensagem>
+  </logEntry>
+</logs>
